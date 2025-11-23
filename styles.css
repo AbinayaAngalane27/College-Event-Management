@@ -1,0 +1,521 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: url("picture.jpg") no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+}
+
+/* Overlay Styling */
+.overlay {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.6); /* Dark overlay for readability */
+}
+
+/* Header Text Styling for Rejouir 2K25 */
+.header-text {
+    position: absolute;
+    top: 20%;
+    left: 50px;
+    color: #a5c9ca; /* Soft pastel teal */
+    font-size: 4rem;
+    font-weight: bold;
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.7);
+    letter-spacing: 2px;
+}
+
+/* Welcome and Tagline Text Styling */
+.welcome-text {
+    text-align: center;
+    color: #f0f4f8; /* Light pastel white-blue */
+    max-width: 800px;
+    margin: 0 auto;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+}
+
+.welcome-text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.welcome-text p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+}
+
+/* Navigation Styling */
+nav {
+    position: absolute;
+    top: 30px;
+    right: 50px;
+    display: flex;
+    gap: 30px;
+}
+
+nav a {
+    color: #b5e2fa; /* Pastel blue */
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding-bottom: 5px;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #ffb6c1; /* Pastel pink on hover */
+}
+
+nav a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #b5e2fa;
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%; /* Underline expands on hover */
+}
+
+/* Footer Styling */
+.footer-animated {
+    background-color: rgba(240, 248, 255, 0.9); /* Light pastel white-blue */
+    color: #333;
+    padding: 20px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.15);
+}
+
+.footer-animated p {
+    font-size: 14px;
+}
+
+.footer-animated p {
+    font-size: 14px;
+}
+
+/* General carousel styling */
+.carousel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.carousel-track-container {
+    overflow: hidden;
+    width: 90%; /* Larger space for images */
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.3s ease-in-out;
+}
+
+.event-category {
+    width: 350px; /* Larger size */
+    height: 350px;
+    margin: 20px;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+.event-category img {
+    width: 300px; /* Default medium size */
+    height: 300px;
+    transition: all 0.5s ease; /* Smooth transition effect */
+    max-width: none; /* Allow image to expand */
+    max-height: none;
+}
+.event-category {
+    overflow: visible; /* Ensure the container allows overflow when the image expands */
+}
+
+
+.event-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 15px;
+    text-align: center;
+    font-size: 18px;
+    display: none;
+}
+
+/* Show the event info when hovering over the image */
+.event-category:hover .event-info {
+    display: block;
+}
+
+/* Styling for previous and next buttons */
+.prev, .next {
+    font-size: 30px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    color: rgb(254, 254, 254);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+.prev {
+    left: 0;
+}
+
+.next {
+    right: 0;
+}
+
+.prev:hover, .next:hover {
+    color: #4CAF50;
+    transform: translateY(-50%) scale(1.1);
+}
+/* Modal Styling */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.9); /* Black background with transparency */
+}
+
+/* Full image in the modal */
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    transition: all 0.3s ease; /* Smooth transition effect */
+}
+
+/* Caption text (below the image) */
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+}
+
+/* The close button (X) */
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Adjust the image size on small screens */
+@media only screen and (max-width: 700px) {
+    .modal-content {
+        width: 100%;
+    }
+}
+/* Main container styling */
+main {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+}
+h2 {
+    font-size: 36px;
+    color: #333;
+    text-align: center;
+    margin-bottom: 40px;
+    transition: text-shadow 1s ease-in-out;
+}
+/* Main container styling */
+main {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+h2 {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 40px;
+    color: #00bcd4;
+}
+/* Event info styling for the accordion effect */
+.event-info {
+    display: none; /* Initially hidden */
+    text-align: center;
+    background-color:rgba(0, 0, 0, 0.3);
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.event-info h3 {
+    cursor: pointer;
+}
+   /* General reset */
+   .login-page * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling */
+.login-page {
+    font-family: Arial, sans-serif;
+    background-color: #f3f4f6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* Header styling */
+.login-page h2 {
+    font-size: 32px;
+    color: #00bcd4;
+    margin-bottom: 20px;
+}
+
+/* Form container styling */
+.login-page .container {
+    background-color: white;
+    padding: 30px;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px; /* Adjust margin-top if needed */
+}
+
+/* Input field styling */
+.login-page .container label {
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #333;
+    align-self: flex-start;
+}
+
+.login-page .container input[type="text"],
+.login-page .container input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.login-page .container input[type="text"]:focus,
+.login-page .container input[type="password"]:focus {
+    border-color: #00bcd4;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 188, 212, 0.5);
+}
+
+/* Button styling */
+.login-page .container button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #00bcd4;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-page .container button[type="submit"]:hover {
+    background-color: #008c9e;
+}
+
+/* Error message styling */
+.login-page .container .error {
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+    display: none; /* Initially hidden, can be displayed dynamically */
+}
+
+.contact-emails
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+.contact-emails
+header {
+    background-color: #4cafa7;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+.contact-emails
+nav {
+    background-color: #333;
+    overflow: hidden;
+    text-align: center;
+}
+.contact-emails
+nav a {
+    display: inline-block;
+    color: white;
+    padding: 14px 20px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+.contact-emails
+nav a:hover {
+    background-color: #4CAF50;
+}
+.contact-emails
+.container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Center align text in the container */
+}
+.contact-emails
+h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.contact-emails, .social-media {
+    list-style-type: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.contact-emails li, .social-media li {
+    margin: 10px 0;
+    font-size: 18px;
+}
+
+.social-media li {
+    display: inline;
+    margin: 0 15px;
+}
+
+.social-media a {
+    text-decoration: none;
+    color: #4cafa7;
+}
+
+.chatbot-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 300px;
+    background-color: #fff;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.chatbot-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #007bff;
+    color: white;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.chatbot-header button {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.chat-window {
+    max-height: 300px;
+    overflow-y: auto;
+    margin-top: 10px;
+}
+
+.user-message {
+    text-align: right;
+    background-color: #f1f1f1;
+    margin: 5px;
+    padding: 8px;
+    border-radius: 10px;
+    max-width: 80%;
+    margin-left: auto;
+}
+
+.bot-message {
+    text-align: left;
+    background-color: #007bff;
+    color: white;
+    margin: 5px;
+    padding: 8px;
+    border-radius: 10px;
+    max-width: 80%;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    border: none;
+    border-radius: 10px;
+    margin-top: 10px;
+}
