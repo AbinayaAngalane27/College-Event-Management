@@ -1,14 +1,12 @@
 <?php
-$servername = "localhost";  // Change this if you're using a remote server
-$username = "root";         // Default username for MySQL
-$password = "";             // Default password for MySQL (set if different)
+$host = "localhost";
+$user = "root";
+$pass = ""; // keep empty or put dummy text
 $dbname = "college_event_management";
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = mysqli_connect($host, $user, $pass, $dbname);
 
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
 }
 ?>
